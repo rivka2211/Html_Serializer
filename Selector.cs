@@ -44,30 +44,7 @@ namespace HtmlSerializer2
                 Name = query.Substring(0, firstSpecialCharIndex);
         }
 
-      /*  public static Selector GetSelector(string query)
-        {
-            string[] parts = query.Split(' ');
-            Selector rootSelector = null;
-            Selector currentSelector = null;
-
-            for (int i = 0; i < parts.Length; i++)
-            {
-                Selector newSelector = new Selector(parts[i]);
-                if (rootSelector == null)
-                {
-                    rootSelector = newSelector;
-                }
-                else if (currentSelector != null)
-                {
-                    currentSelector.Child = newSelector;
-                    newSelector.Parent = currentSelector;
-                }
-                currentSelector = newSelector;
-            }
-            return rootSelector;
-        }*/
-
-        public bool Fit(HtmlElement element)
+          public bool Fit(HtmlElement element)
         {
             if (element == null)
                 return false;

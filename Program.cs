@@ -27,9 +27,6 @@ namespace HtmlSerializer2
             string cleanHtml = new Regex("\\n").Replace(html, "");
             string[] htmlLines = new Regex("<(.*?)>").Split(cleanHtml).Where(s => s.Length > 1).ToArray();
             string[] tags = htmlLines;
-            //CreateHtml html = new CreateHtml();
-            //HtmlElement root = new HtmlElement(await CreateHtml.GetRootAsync(url));
-            //root.Name = "html";
 
             Console.WriteLine("before init");
             //init 
@@ -62,8 +59,6 @@ namespace HtmlSerializer2
                 }
             }
             Console.WriteLine("after init");
-            //HtmlElement dom = await CreateHtml.Init(url);
-
 
             Print(root);
             Console.WriteLine("dom finish!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
