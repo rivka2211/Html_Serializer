@@ -34,7 +34,7 @@ namespace HtmlSerializer2
                 else
                     Attributes.Add(match.Groups[2].Value);
 
-                Console.WriteLine($"Attribute: {match.Groups[1].Value}, Value: {match.Groups[2].Value}");
+                //Console.WriteLine($"Attribute: {match.Groups[1].Value}, Value: {match.Groups[2].Value}");
             }
             Classes = classes.Split(" ").ToList();
             this.Children = new List<HtmlElement>();
@@ -92,7 +92,7 @@ namespace HtmlSerializer2
 
         public override string? ToString()
         {
-            return $"id={Id},name={Name},inner HTML={InnerHtml},classes={Classes.Count},parent={Parent}\n";
+            return $"id:{Id},name:{Name},inner HTML:{InnerHtml},classes:{Classes.Count},parent:{Parent?.Name}\n";
         }
     }
 }

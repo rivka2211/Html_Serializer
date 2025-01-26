@@ -22,41 +22,29 @@ namespace HtmlSerializer2
             {
                 return;
             }
-
-            // Split the query into parts based on the presence of '#' and '.'
             string[] parts = query.Split(new[] { '#', '.' });
-
-            // Check if the query contains an ID ('#')
             int idIndex = query.IndexOf('#');
             if (idIndex != -1)
             {
                 Id = parts[1];
             }
-
-            // Check if the query contains classes ('.')
             int classIndex = query.IndexOf('.');
             if (classIndex != -1)
             {
-                // Add all parts after the first '.' to the Classes list
                 for (int i = (idIndex != -1 ? 2 : 1); i < parts.Length; i++)
                 {
                     Classes.Add(parts[i]);
                 }
             }
 
-            // The Name is the part before the first '#' or '.'
             int firstSpecialCharIndex = query.IndexOfAny(new[] { '#', '.' });
             if (firstSpecialCharIndex == -1)
-            {
                 Name = query;
-            }
             else
-            {
                 Name = query.Substring(0, firstSpecialCharIndex);
-            }
         }
 
-        public static Selector GetSelector(string query)
+      /*  public static Selector GetSelector(string query)
         {
             string[] parts = query.Split(' ');
             Selector rootSelector = null;
@@ -77,7 +65,7 @@ namespace HtmlSerializer2
                 currentSelector = newSelector;
             }
             return rootSelector;
-        }
+        }*/
 
         public bool Fit(HtmlElement element)
         {
